@@ -1,4 +1,4 @@
-﻿const API_BASE = '';
+﻿const API_BASE = 'https://jom-bank-backend-jacquesmends9750-uc.a.run.app';
 
 const authPanel = document.getElementById('authPanel');
 const dashboard = document.getElementById('dashboard');
@@ -214,8 +214,15 @@ async function api(path, method = 'GET', body = null, auth = true) {
   if (auth && currentToken) {
     options.headers.Authorization = `Bearer ${currentToken}`;
   }
-  const response = await fetch(`${API_BASE}${path}`, options);
-  const data = await response.json();
+  const response = await fetch(`${API_BASE}${path}`,{ ...options,mode: 'cors' });
+
+  const contentType = response.headers.get('content-type');
+  let data;
+  if (contentType && contentType.includes('application/json')) {
+    data = await response.json();
+  } else {
+    data = {error:await response.text() };
+  }
   if (!response.ok) {
     throw new Error(data.error || 'Request failed');
   }
