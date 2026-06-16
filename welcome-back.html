@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome Back | J.O.M Bank</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, system-ui, sans-serif;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 35%),
+        linear-gradient(180deg, #020617 0%, #0f172a 100%);
+      color: #e2e8f0;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 1.5rem;
+      background-attachment: fixed;
+    }
+    .container {
+      width: min(980px, 100%);
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .brand img {
+      width: 56px;
+      height: auto;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.8);
+      padding: 0.65rem;
+      box-shadow: 0 18px 50px rgba(56, 189, 248, 0.16);
+    }
+    .brand-title {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+    .brand-subtitle {
+      margin: 0.15rem 0 0;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+    .welcome-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      padding: 3rem 2.5rem;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 35px 90px rgba(15, 23, 42, 0.35);
+      display: grid;
+      gap: 1.25rem;
+    }
+    .welcome-card::before,
+    .welcome-card::after {
+      content: '';
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(35px);
+      opacity: 0.7;
+    }
+    .welcome-card::before {
+      top: -3rem;
+      right: -4rem;
+      width: 12rem;
+      height: 12rem;
+      background: rgba(56, 189, 248, 0.35);
+      animation: float 8s ease-in-out infinite;
+    }
+    .welcome-card::after {
+      bottom: -2rem;
+      left: -3rem;
+      width: 10rem;
+      height: 10rem;
+      background: rgba(139, 92, 246, 0.25);
+      animation: drift 9s ease-in-out infinite;
+    }
+    .welcome-card h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+    .welcome-card p {
+      max-width: 36rem;
+      margin: 0;
+      color: #cbd5e1;
+      line-height: 1.8;
+    }
+    .stat-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+    .stat-card {
+      padding: 1.15rem 1.25rem;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.9rem;
+      color: #ffffff;
+    }
+    .stat-card span {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .button-row a,
+    .button-row button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 11rem;
+      padding: 0.95rem 1.3rem;
+      border-radius: 16px;
+      border: none;
+      text-decoration: none;
+      color: #0f172a;
+      font-weight: 700;
+      background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.16);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .button-row a:hover,
+    .button-row button:hover {
+      transform: translateY(-2px);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(14px) scale(1.05); }
+    }
+    @keyframes drift {
+      0%, 100% { transform: translateX(0) scale(1); }
+      50% { transform: translateX(16px) scale(1.05); }
+    }
+    @media (max-width: 720px) {
+      body {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="brand">
+      <img src="logo.svg" alt="J.O.M Bank logo" />
+      <div>
+        <p class="brand-title">J.O.M Bank</p>
+        <p class="brand-subtitle">Your secure banking companion</p>
+      </div>
+    </header>
+    <article class="welcome-card">
+      <h1>Welcome Back to J.O.M Bank</h1>
+      <p>Every visit is smoother than the last. Track your balance, manage payments, and access premium banking features from a single interactive experience.</p>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <strong>Fast access</strong>
+          <span>Instant login and quick actions</span>
+        </div>
+        <div class="stat-card">
+          <strong>Secure PIN</strong>
+          <span>4-digit PIN authentication</span>
+        </div>
+        <div class="stat-card">
+          <strong>Live updates</strong>
+          <span>Mini statement in one place</span>
+        </div>
+      </div>
+      <div class="button-row">
+        <a href="index.html">Back to J.O.M Bank</a>
+      </div>
+    </article>
+  </div>
+</body>
+</html>

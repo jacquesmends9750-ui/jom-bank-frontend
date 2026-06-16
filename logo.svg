@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 72" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">J.O.M Bank logo</title>
+  <desc id="logoDesc">Stylized J.O.M Bank emblem with blue gradient and gold accent.</desc>
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde68a" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+  </defs>
+  <rect width="240" height="72" rx="18" fill="rgba(15,23,42,0.95)" />
+  <g filter="url(#shadow)">
+    <rect x="12" y="12" width="48" height="48" rx="14" fill="url(#logoGradient)" />
+    <path d="M24 24 L40 24 L40 32 L28 32 L28 40 L40 40" fill="none" stroke="#0f172a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M54 22 A14 14 0 0 1 54 50" fill="none" stroke="url(#accentGradient)" stroke-width="8" />
+    <path d="M78 22 A14 14 0 0 1 78 50" fill="none" stroke="url(#logoGradient)" stroke-width="8" />
+  </g>
+  <text x="72" y="34" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">J.O.M</text>
+  <text x="72" y="54" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="12" letter-spacing="0.12em">Bank</text>
+</svg>

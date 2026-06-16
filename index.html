@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>J.O.M Bank</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <div class="hero-brand">
+          <img src="logo.svg" alt="J.O.M Bank logo" class="brand-logo" />
+          <div>
+            <p class="brand-name">J.O.M Bank</p>
+            <p class="brand-tagline">Modern banking, trusted service</p>
+          </div>
+        </div>
+        <span class="tag">Trusted Ghana bank</span>
+        <h1>Welcome to J.O.M Bank</h1>
+        <p>Fast, secure, and friendly banking for everyone.</p>
+        <p class="brand-license">Licensed by Bank of Ghana</p>
+      </div>
+      <div class="hero-actions">
+        <div class="hero-action-group">
+          <button class="btn primary" id="show-login">Login</button>
+          <a class="btn tertiary" href="welcome-back.html">Welcome Back</a>
+          <span class="security-badge">🔒 SSL Secured</span>
+        </div>
+        <button class="btn secondary" id="show-register">Create Account</button>
+        <button class="btn tertiary" id="themeToggle">Light mode</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="cards">
+        <article class="card quick-access hidden" id="quickAccessSection">
+          <h2>Quick Access</h2>
+          <div class="quick-grid">
+            <button class="quick-btn" id="quickDeposit">Deposit</button>
+            <button class="quick-btn" id="quickWithdraw">Withdraw</button>
+            <button class="quick-btn" id="quickBills">Pay Bills</button>
+            <button class="quick-btn" id="quickBalance">Check Balance</button>
+            <button class="quick-btn" id="quickInfo">Bank Info</button>
+          </div>
+        </article>
+        <article class="card info-card">
+          <h2>Helpline & Bank Info</h2>
+          <p><strong>Phone:</strong> <a href="tel:+233256344918">+233 256 344 918</a></p>
+          <p><strong>Email:</strong> <a href="mailto:jacquesmends9750@email.com">jacquesmends9750@email.com</a></p>
+          <p><strong>Location:</strong> Accra, Ghana</p>
+          <p><strong>About:</strong> J.O.M Bank provides fast deposits, withdrawals, bill payments, and secure digital cash management for individuals and families.</p>
+        </article>
+      </section>
+
+      <section class="auth-panel" id="authPanel">
+        <div class="auth-card" id="loginCard">
+          <h2>Login to Your Account</h2>
+          <form id="loginForm">
+            <label>Email address</label>
+            <input type="email" id="loginEmail" required />
+            <label>4-digit PIN</label>
+            <input type="password" id="loginPin" inputmode="numeric" pattern="\d{4}" maxlength="4" required />
+            <button class="btn primary" type="submit">Login with PIN</button>
+            <p class="notice-text">Three failed PIN attempts block your account for 15 minutes.</p>
+            <p class="link-row"><button class="link-button" id="forgotPinLink" type="button">Forgot PIN?</button></p>
+            <p class="form-error" id="loginError"></p>
+          </form>
+          <p class="small-text">New to J.O.M Bank? <button class="link-button" id="switchToRegister">Create an account</button></p>
+        </div>
+        <div class="auth-card hidden" id="otpCard">
+          <h2>Verify OTP</h2>
+          <p class="muted" id="otpEmailDisplay"></p>
+          <form id="otpForm">
+            <label>Enter OTP</label>
+            <input type="text" id="otpInput" inputmode="numeric" pattern="\d{6}" maxlength="6" required />
+            <button class="btn primary" type="submit">Verify OTP</button>
+            <p class="form-error" id="otpError"></p>
+          </form>
+          <div class="link-row">
+            <button class="link-button" id="resendOtpBtn" type="button">Resend code</button>
+            <span id="resendTimer" class="muted small-text"></span>
+          </div>
+          <p class="small-text">Enter the code sent to your phone after PIN validation.</p>
+        </div>
+        <div class="auth-card hidden" id="forgotRequestCard">
+          <h2>Reset PIN</h2>
+          <form id="forgotRequestForm">
+            <label>Email address</label>
+            <input type="email" id="forgotEmail" required />
+            <button class="btn primary" type="submit">Send OTP</button>
+            <p class="form-error" id="forgotRequestError"></p>
+          </form>
+          <p class="small-text">We will send an OTP to your registered phone/email to reset your PIN.</p>
+        </div>
+        <div class="auth-card hidden" id="resetPinCard">
+          <h2>Set New PIN</h2>
+          <form id="resetPinForm">
+            <label>New 4-digit PIN</label>
+            <input type="password" id="newPin" inputmode="numeric" pattern="\d{4}" maxlength="4" required />
+            <label>Confirm PIN</label>
+            <input type="password" id="confirmNewPin" inputmode="numeric" pattern="\d{4}" maxlength="4" required />
+            <button class="btn primary" type="submit">Reset PIN</button>
+            <p class="form-error" id="resetPinError"></p>
+          </form>
+          <p class="small-text">After successful verification, set a new PIN to regain access.</p>
+        </div>
+        <div class="auth-card" id="registerCard">
+          <h2>Create a Bank Account</h2>
+          <form id="registerForm">
+            <label>Your name</label>
+            <input type="text" id="registerName" required />
+            <label>Email address</label>
+            <input type="email" id="registerEmail" required />
+            <label>Phone number</label>
+            <input type="tel" id="registerPhone" placeholder="+233..." required />
+            <label>Set a 4-digit PIN</label>
+            <input type="password" id="registerPin" inputmode="numeric" pattern="\d{4}" maxlength="4" required />
+            <label>Confirm 4-digit PIN</label>
+            <input type="password" id="confirmRegisterPin" inputmode="numeric" pattern="\d{4}" maxlength="4" required />
+            <button class="btn primary" type="submit">Create Account</button>
+            <p class="form-error" id="registerError"></p>
+          </form>
+          <p class="small-text">Already have an account? <button class="link-button" id="switchToLogin">Login now</button></p>
+        </div>
+      </section>
+
+      <section class="dashboard hidden" id="dashboard">
+        <div class="dashboard-header">
+          <div>
+            <h2 id="welcomeText">Hello, Customer</h2>
+            <div class="dashboard-alert hidden" id="dashboardAlert"></div>
+            <p class="muted" id="accountName">Account name: <span></span></p>
+            <p class="muted" id="accountNumber">Account #: <span></span></p>
+            <p class="muted" id="accountEmail">Email: <span></span></p>
+          </div>
+          <button class="btn secondary" id="logoutBtn">Logout</button>
+        </div>
+
+        <div class="balance-card">
+          <h3>Current Balance</h3>
+          <div class="balance-amount" id="balanceAmount">GHS 0.00</div>
+        </div>
+
+        <div class="dashboard-actions">
+          <button class="btn primary wide" id="openDeposit">Deposit Money</button>
+          <button class="btn secondary wide" id="openWithdraw">Withdraw Money</button>
+          <button class="btn tertiary wide" id="openBills">Pay Bills</button>
+          <button class="btn secondary wide" id="openChangePin">Change PIN</button>
+          <button class="btn tertiary wide" id="openTransfer">Transfer Money</button>
+        </div>
+
+        <div class="transaction-panels">
+          <div class="panel" id="depositPanel">
+            <h3>Deposit</h3>
+            <form id="depositForm">
+              <label>Amount</label>
+              <input type="number" id="depositAmount" min="1" step="0.01" required />
+              <button class="btn primary" type="submit">Deposit</button>
+            </form>
+          </div>
+          <div class="panel hidden" id="withdrawPanel">
+            <h3>Withdrawal</h3>
+            <form id="withdrawForm">
+              <label>Amount</label>
+              <input type="number" id="withdrawAmount" min="1" step="0.01" required />
+              <button class="btn secondary" type="submit">Withdraw</button>
+            </form>
+          </div>
+          <div class="panel hidden" id="billsPanel">
+            <h3>Bills Payment</h3>
+            <form id="billsForm">
+              <label>Bill type</label>
+              <select id="billType">
+                <option value="School fees">School fees</option>
+                <option value="Hospital bills">Hospital bills</option>
+                <option value="Electricity">Electricity</option>
+                <option value="Water">Water</option>
+                <option value="Internet">Internet</option>
+                <option value="Tax">Tax</option>
+              </select>
+              <label>Amount</label>
+              <input type="number" id="billAmount" min="1" step="0.01" required />
+              <button class="btn tertiary" type="submit">Pay Bill</button>
+            </form>
+          </div>
+          <div class="panel hidden" id="changePinPanel">
+            <h3>Change PIN</h3>
+            <form id="changePinForm">
+              <label>Current 4-digit PIN</label>
+              <input type="password" id="currentPin" inputmode="numeric" pattern="\d{4}" maxlength="4" required />
+              <label>New 4-digit PIN</label>
+              <input type="password" id="newPin" inputmode="numeric" pattern="\d{4}" maxlength="4" required />
+              <label>Confirm new PIN</label>
+              <input type="password" id="confirmPin" inputmode="numeric" pattern="\d{4}" maxlength="4" required />
+              <button class="btn secondary" type="submit">Update PIN</button>
+            </form>
+          </div>
+          <div class="panel hidden" id="transferPanel">
+            <h3>Transfer Funds</h3>
+            <form id="transferForm">
+              <label>Recipient email</label>
+              <input type="email" id="transferEmail" placeholder="beneficiary@example.com" required />
+              <label>Amount</label>
+              <input type="number" id="transferAmount" min="1" step="0.01" required />
+              <label>Note</label>
+              <input type="text" id="transferNote" placeholder="Payment details (optional)" />
+              <button class="btn primary" type="submit">Send Transfer</button>
+            </form>
+            <h4>Manage Beneficiaries</h4>
+            <form id="beneficiaryForm">
+              <label>Beneficiary name</label>
+              <input type="text" id="beneficiaryName" placeholder="Joseph Mensah" required />
+              <label>Beneficiary email</label>
+              <input type="email" id="beneficiaryEmail" placeholder="beneficiary@example.com" required />
+              <button class="btn secondary" type="submit">Save beneficiary</button>
+            </form>
+            <ul id="beneficiaryList" class="beneficiary-list"></ul>
+          </div>
+        </div>
+
+        <section class="history-card">
+          <h3>Mini Statement (Last 5)</h3>
+          <ul id="transactionHistory" class="history-list"></ul>
+        </section>
+      </section>
+
+      <section class="admin-panel hidden" id="adminPanel">
+        <div class="admin-card">
+          <div class="dashboard-header">
+            <div>
+              <h2>Admin Console</h2>
+              <p class="muted">View all users, freeze or restore accounts.</p>
+            </div>
+            <button class="btn secondary" id="adminLogoutBtn">Logout</button>
+          </div>
+          <div class="admin-actions">
+            <button class="btn primary" id="refreshUsersBtn">Refresh users</button>
+          </div>
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Account</th>
+                  <th>Email</th>
+                  <th>Number</th>
+                  <th>Balance</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="userList"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <footer class="site-footer">
+        <p>© 2026 J.O.M Bank. All rights reserved.</p>
+      </footer>
+    </main>
+  </div>
+
+  <template id="historyItemTpl">
+    <li class="history-item">
+      <span class="history-type"></span>
+      <span class="history-amount"></span>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
+,
